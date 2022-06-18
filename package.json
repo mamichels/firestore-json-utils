@@ -1,0 +1,32 @@
+{
+  "name": "firestore-json-utils",
+  "version": "0.1.0",
+  "description": "Lib for working with firestore documents",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "git add -A .",
+    "postversion" : "git push && git push --tags"
+  },
+  "keywords": ["Firestore", "Firebase", "JSON", "Utils"],
+  "author": "mamichels",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^28.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  }
+}
