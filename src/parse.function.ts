@@ -15,6 +15,4 @@ const parseDocumentField: (value: object, type: string) => Partial<FieldTypes> |
     if (type === 'object' && !Array.isArray(value)) return {mapValue: parseObjectField(value as Fields)};
 };
 
-export const parse: (obj: object) => FirestoreDocument = (obj: object) => {
-    return parseObjectField(obj);
-};
+export const parse: (obj: object) => FirestoreDocument = (obj: object) => parseObjectField(obj);
