@@ -1,6 +1,6 @@
 {
   "name": "firestore-json-utils",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Lib for working with firestore documents",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
