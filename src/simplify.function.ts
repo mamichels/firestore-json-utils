@@ -22,9 +22,6 @@ const getFieldValue: <T extends Fields>(obj: T, field: keyof T) => string | numb
 
         case 'geoPointValue':
             return getGeoPointFieldValue(obj[field] as unknown as GeopointField);
-
-        default:
-            return undefined;
     }
 };
 

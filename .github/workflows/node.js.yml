@@ -43,7 +43,7 @@ jobs:
         name: Create the Badge
         uses: schneegans/dynamic-badges-action@v1.0.0
         with:
-          auth: ${{ secrets.TOKEN }}
+          auth: ${{ secrets.GIST_TOKEN }}
           gistID: 206d74dd194a97a674980599a252e16d
           filename: firestore-json-utils_${{ env.BRANCH }}.json
           label: Test Coverage
