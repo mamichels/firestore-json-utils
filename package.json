@@ -10,6 +10,7 @@
   "scripts": {
     "lint": "eslint . --ext .ts",
     "test": "jest --config jestconfig.json",
+    "test-coverage": "jest --config jestconfig.json --coverage",
     "build": "tsc",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",

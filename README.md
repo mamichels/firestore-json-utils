@@ -1,4 +1,7 @@
 # firestore-json-util
+[![npm license](https://img.shields.io/github/license/mamichels/firestore-json-utils)](https://github.com/mamichels/firestore-json-utils/blob/main/LICENCE)
+[![npm license](https://img.shields.io/npm/v/firestore-json-utils)](https://www.npmjs.com/package/firestore-parser)
+
 A fully typed and tested lib for working with Firestore documents.
 Used to parse and simplify Firestore documents for those who don't want to commit to the Firebase SDK.
 
