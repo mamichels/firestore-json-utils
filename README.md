@@ -15,7 +15,7 @@ npm install --save firestore-json-util
 ### simplify
 Transforms a Firestore document into a readable simplified JSON object.
 
-Supports all known Firestore data types.
+Supports all known Firestore data types, but be cautious with multidimensional arrays.
 ```ts
 import { simplify } from 'firestore-json-util';
 ...

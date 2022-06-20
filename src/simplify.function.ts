@@ -26,7 +26,10 @@ const getFieldValue: <T extends Fields>(obj: T, field: keyof T) => string | numb
 };
 
 const getArrayFieldValue = (fields: ArrayField) =>
-    fields.arrayValue.values.map((field) => field[getFirstObjectKey(field)])
+    fields.arrayValue.values.map((field) => {
+        if (typeof field[getFirstObjectKey(field)] === 'object') return getMapFieldValue((field[getFirstObjectKey(field)]as unknown as FieldMap).fields as unknown as Fields);
+        return field[getFirstObjectKey(field)];
+    })
 
 const getMapFieldValue = (map: Fields) =>
     Object.assign({}, ...Object.keys(map).map((k: keyof Fields) => ({[k]: getFieldValue(map, k)})));

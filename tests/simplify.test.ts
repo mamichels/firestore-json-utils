@@ -43,3 +43,7 @@ test('should map object field', () => {
 test('should map array field', () => {
     expect(simplify({fields: {testField: {arrayValue: {values: [{stringValue: "string in array"}]}}}})).toStrictEqual({testField: ["string in array"]});
 });
+
+test('should map object-nested array field', () => {
+    expect(simplify({fields: {testField: {arrayValue: {values: [{mapValue: {fields: {nestedField: { stringValue: "nested-field"}}}}]}}}})).toStrictEqual({testField: [{nestedField: 'nested-field'}]});
+});
