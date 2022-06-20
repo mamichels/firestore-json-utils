@@ -8,6 +8,18 @@ test('should map string field', () => {
     expect(parse({testField: 'string-field'})).toStrictEqual({fields: {testField: {stringValue: 'string-field'}}});
 });
 
+test('should map whitespace to string field', () => {
+    expect(parse({testField: ' '})).toStrictEqual({fields: {testField: {stringValue: ' '}}});
+});
+
+test('should map date to string field', () => {
+    expect(parse({testField: '2020-06-20'})).toStrictEqual({fields: {testField: {stringValue: '2020-06-20'}}});
+});
+
+test('should map timestamp field', () => {
+    expect(parse({testField: '2022-06-17T18:49:21.152Z'})).toStrictEqual({fields: {testField: {timestampValue: '2022-06-17T18:49:21.152Z'}}});
+});
+
 test('should map integer field', () => {
     expect(parse({testField: 3})).toStrictEqual({fields: {testField: {integerValue: '3'}}});
 });
