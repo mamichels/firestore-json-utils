@@ -8,7 +8,7 @@ Used to parse and simplify Firestore documents for those who don't want to commi
 
 ## Installation
 ```shell
-npm install --save firestore-json-util
+npm install --save firestore-json-utils
 ```
 
 ## Usage
