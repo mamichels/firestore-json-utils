@@ -12,6 +12,54 @@ npm install --save firestore-json-utils
 ```
 
 ## Usage
+
+### parse
+Transforms a simple JSON object into a Firestore document.
+
+Supports all known Firestore data types expect `GeoPoints` and `References`. Those are transformed as `objects` / `strings`.
+```ts
+import { parse } from 'firestore-json-utils';
+...
+const document = parse(json);
+```
+
+### `parse` example
+
+Say, we have a simple object representing a person.
+a call to `parse` with our fictional 'person' JSON as input
+
+```json
+{
+  "id": 1701,
+  "name": "Jane Doe",
+  "active": true,
+  "dateOfBirth": "1977-12-09T14:35:21.152Z"
+}
+```
+
+returns the following Firestore document representation as output:
+
+```json
+{
+  "fields": {
+    "id": {
+      "integerValue": "1701"
+    },
+    "name": {
+      "stringValue": "Jane Doe"
+    },
+    "active": {
+      "booleanValue": true
+    },
+    "dateOfBirth": {
+      "timestampValue": "1977-12-09T14:35:21.152Z"
+    }
+  }
+}
+```
+
+(and yes, please ignore that `dateOfBirth` should be a local date rather than a timestamp, depending on how you see it...)
+
 ### simplify
 Transforms a Firestore document into a readable simplified JSON object.
 
@@ -22,14 +70,38 @@ import { simplify } from 'firestore-json-utils';
 const json = simplify(document);
 ```
 
-### parse
-Transforms a simple JSON object into a Firestore document.
+#### `simplify` example
 
-Supports all known Firestore data types expect `GeoPoints` and `References`. Those are transformed as `objects` / `strings`.
-```ts
-import { parse } from 'firestore-json-utils';
-...
-const document = parse(json);
+A call to `simplify` with the following Firestore document (input):
+
+```json
+{
+  "fields": {
+    "id": {
+      "integerValue": "1701"
+    },
+    "name": {
+      "stringValue": "Jane Doe"
+    },
+    "active": {
+      "booleanValue": true
+    },
+    "dateOfBirth": {
+      "timestampValue": "1977-12-09T14:35:21.152Z"
+    }
+  }
+}
+```
+
+will create the following simple JSON:
+
+```json
+{
+  "id": 1701,
+  "name": "Jane Doe",
+  "active": true,
+  "dateOfBirth": "1977-12-09T14:35:21.152Z"
+}
 ```
 
 ## Contributing
