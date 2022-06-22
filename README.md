@@ -17,7 +17,7 @@ Transforms a Firestore document into a readable simplified JSON object.
 
 Supports all known Firestore data types, but be cautious with multidimensional arrays.
 ```ts
-import { simplify } from 'firestore-json-util';
+import { simplify } from 'firestore-json-utils';
 ...
 const json = simplify(document);
 ```
@@ -27,7 +27,7 @@ Transforms a simple JSON object into a Firestore document.
 
 Supports all known Firestore data types expect `GeoPoints` and `References`. Those are transformed as `objects` / `strings`.
 ```ts
-import { parse } from 'firestore-json-util';
+import { parse } from 'firestore-json-utils';
 ...
 const document = parse(json);
 ```
