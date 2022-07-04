@@ -44,6 +44,14 @@ test('should map array field', () => {
     expect(simplify({fields: {testField: {arrayValue: {values: [{stringValue: "string in array"}]}}}})).toStrictEqual({testField: ["string in array"]});
 });
 
+test('should map empty array field with undefined values', () => {
+    expect(simplify({fields: {testField: {arrayValue: {}}}})).toStrictEqual({testField: []});
+});
+
+test('should map empty array field', () => {
+    expect(simplify({fields: {testField: {arrayValue: {values: []}}}})).toStrictEqual({testField: []});
+});
+
 test('should map object-nested array field', () => {
     expect(simplify({fields: {testField: {arrayValue: {values: [{mapValue: {fields: {nestedField: { stringValue: "nested-field"}}}}]}}}})).toStrictEqual({testField: [{nestedField: 'nested-field'}]});
 });

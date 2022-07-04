@@ -7,7 +7,7 @@ export type TimestampField = { timestampValue: string };
 export type ReferenceField = { referenceValue: string };
 export type GeopointField = { geoPointValue: { latitude: number; longitude: number; } };
 export type MapField = { mapValue: FieldMap };
-export type ArrayField = { arrayValue: { values: FieldTypes[] } };
+export type ArrayField = { arrayValue: { values?: FieldTypes[] } };
 export type FieldTypes =
     StringField
     | IntegerField
